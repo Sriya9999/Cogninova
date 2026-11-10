@@ -27,6 +27,14 @@ Copy `.env.example` to `.env.local`.
 | `CONTACT_WEBHOOK_URL` | Endpoint that receives enquiries as JSON. Required in production; without it the form shows an error rather than dropping enquiries. |
 | `NEXT_PUBLIC_GA_ID` | Optional Google Analytics 4 ID. |
 
+## Deploy (Cloudflare Workers)
+
+```bash
+npm run deploy
+```
+
+This builds with the OpenNext Cloudflare adapter, bundles the static assets into the Worker (`scripts/embed-assets.mjs`) and runs `wrangler deploy`. Set `NEXT_PUBLIC_SITE_URL` in the shell when building, and add `CONTACT_WEBHOOK_URL` as a Worker secret (`npx wrangler secret put CONTACT_WEBHOOK_URL`).
+
 ## Before launch
 
 - Replace the placeholder products in `src/content/products.ts` with the real portfolio.
