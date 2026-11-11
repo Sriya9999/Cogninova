@@ -3,9 +3,7 @@
 //
 // Why: Cloudflare's separate static-asset upload authenticates with a
 // short-lived upload token, which some CI/proxy setups that inject their own
-// API credentials overwrite. Embedding avoids that upload entirely. If you
-// deploy from a normal machine you can instead use the standard `assets`
-// binding in wrangler.jsonc with `opennextjs-cloudflare deploy`.
+// API credentials overwrite. Embedding avoids that upload entirely.
 import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { extname, join } from "node:path";
 
